@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" onclick="jump()">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        overflow: hidden;
+      }
+      body {
+        width: 100%;
+        height: 100vh;
+      }
+      .boxes {
+        /* width: 500px; */
+        width: 90%;
+        height: 200px;
+        border: 1px solid red;
+        margin: 100px auto;
+        padding: 0 10px;
+        position: relative;
+        top: 60%;
+      }
+      .boxes > .item {
+        width: 30px;
+        height: 60px;
+        position: relative;
+        top: 150px;
+        background-color: tomato;
+      }
+      .boxes > .item > img {
+        width: 100%;
+        height: 80%;
+        object-fit: contain;
+      }
+      .boxes > .box {
+        width: 20px;
+        height: 80px;
+        background-color: darkblue;
+        position: relative;
+        top: 130px;
+        left: 680px;
+        animation: boxmove 900ms linear infinite;
+      }
+      @keyframes boxmove {
+        0% {
+          left: 680px;
+        }
+        100% {
+          left: -40px;
+        }
+      }
+      .animation-jump {
+        animation: jumpup 500ms;
+      }
+      @keyframes jumpup {
+        0% {
+          top: 150px;
+        }
+        30% {
+          top: 100px;
+        }
+        70% {
+          top: 100px;
+        }
+        100% {
+          top: 150px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="boxes">
+      <div id="item" class="item">
+        <!-- <img src="img/image-final.png" alt="" /> -->
+      </div>
+      <div id="box" class="box"></div>
+    </div>
+    <script>
+      let _item = document.getElementById("item");
+      let _box = document.getElementById("box");
+      function jump() {
+        _item.classList.add("animation-jump");
+        setTimeout(() => {
+          _item.classList.remove("animation-jump");
+        }, 500);
+      }
+    </script>
+  </body>
+</html>
